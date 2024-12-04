@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimate Invoice</title>
+    <!-- <link rel="stylesheet" type="" href="style.css"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <style>
+        .invoice-box {
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .invoice-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .form-inline .form-control {
+            border: none;
+            border-bottom: 1px solid #000;
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .border-bottom-dotted {
+            border-bottom: 1px solid #000;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="invoice-box">
+            <h3 class="invoice-title">ESTIMENT</h3>
+            <div class="row mb-3">
+                <div class="col-md-6 d-flex">
+                    <strong>Party Name:</strong>
+                    <div class="border-bottom-dotted ms-2"></div>
+                </div>
+                <div class="col-md-6 d-flex">
+                    <strong>Order No:</strong>
+                    <div class="border-bottom-dotted ms-2"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6 d-flex">
+                    <strong>Address:</strong>
+                    <div class="border-bottom-dotted ms-2"></div>
+                </div>
+                <div class="col-md-6 d-flex">
+                    <strong>Order Date:</strong>
+                    <div class="border-bottom-dotted ms-2"></div>
+                </div>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">No.</th>
+                        <th style="width: 45%;">Product Name</th>
+                        <th style="width: 15%;">Qty</th>
+                        <th style="width: 15%;">Rate</th>
+                        <th style="width: 20%;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Repeat this row for each product -->
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!-- Add more rows as needed, up to 15 as in the image -->
+                    <tr>
+                        <td>15</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row mt-3">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th class="text-end">GST:</th>
+                            <td class="border-bottom-dotted">________</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end">Transport:</th>
+                            <td class="border-bottom-dotted">________</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end">Total:</th>
+                            <td class="border-bottom-dotted">________</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
