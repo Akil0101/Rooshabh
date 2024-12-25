@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2024 at 01:03 PM
+-- Generation Time: Dec 25, 2024 at 10:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tm`
+-- Database: `roosh`
 --
 
 -- --------------------------------------------------------
@@ -192,6 +192,28 @@ INSERT INTO `contact` (`id`, `location`, `address`, `phone`, `email`, `password`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` bigint(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_mysql561_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `address`, `email`, `phone`) VALUES
+(2, 'Akil Badi', 'Kankot, wankaner, morbi, gujarat', 'akilbadi194@gmail.com', 8141910114),
+(3, 'najir badi', 'kankot', 'najir123@gamail.com', 821989233);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `estimate`
 --
 
@@ -307,7 +329,12 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`id`, `name`, `address`, `email`, `mobile`, `gst`, `transport`, `nots`, `token`, `date`) VALUES
-(98, 'Akil Badi', 'Kankot, wankaner, morbi, gujarat', 'akilbadi194@gmail.com', 8141910114, 5, 200, 'fasdfsdfsdf', 2102742, '2024-11-08');
+(98, 'Akil Badi', 'Kankot, wankaner, morbi, gujarat', 'akilbadi194@gmail.com', 8141910114, 5, 200, 'fasdfsdfsdf', 2102742, '2024-11-08'),
+(99, 'Akil Badi', 'Kankot, wankaner, morbi, gujarat', 'akilbadi194@gmail.com', 8141910114, 34, 343, '', 5499922, '2024-12-19'),
+(100, 'Akil Badi', 'Kankot, wankaner, morbi, gujarat', 'akilbadi194@gmail.com', 8141910114, 3, 344, '', 4600674, '2024-12-20'),
+(101, 'wewea', 'dadadawd', 'wdwd@dddddd21', 343434344, 3, 343, '', 8443634, '2024-12-20'),
+(102, 'Akil Badi', 'Kankot, wankaner, morbi, gujarat', 'akilbadi194@gmail.com', 8141910114, 4, 44, '', 9712421, '2024-12-20'),
+(103, 'Akil Badi', 'Kankot, wankaner, morbi, gujarat', 'akilbadi194@gmail.com', 8141910114, 5, 567, '', 8271994, '2024-12-20');
 
 -- --------------------------------------------------------
 
@@ -338,7 +365,12 @@ INSERT INTO `invoice_item` (`id`, `invoice_id`, `Product_img`, `product_name`, `
 (108, 97, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 5, 4564, 22820),
 (109, 98, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 2, 4564, 9128),
 (110, 14, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 2, 4564, 9128),
-(111, 14, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 23, 4564, 104972);
+(111, 14, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 23, 4564, 104972),
+(112, 99, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 23, 4564, 104972),
+(113, 100, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 33, 4564, 150612),
+(114, 101, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 33, 4564, 150612),
+(115, 102, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 2, 4564, 9128),
+(116, 103, 'upload/products/masonry-portfolio-6.jpg', 'table', '20X20', 44, 4564, 200816);
 
 -- --------------------------------------------------------
 
@@ -540,6 +572,12 @@ ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `estimate`
 --
 ALTER TABLE `estimate`
@@ -670,6 +708,12 @@ ALTER TABLE `contact`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `estimate`
 --
 ALTER TABLE `estimate`
@@ -697,13 +741,13 @@ ALTER TABLE `header`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `invoice_item`
 --
 ALTER TABLE `invoice_item`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `portfolio`
