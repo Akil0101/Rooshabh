@@ -6,7 +6,7 @@ class adminmodel
     {
         session_start();
         // database connectivity
-        $this->connection = new mysqli("localhost", "root", "", "tm");
+        $conn = $this->connection = new mysqli("localhost", "root", "", "roosh");
         if ($this->connection) {
             // echo "<h5>Connection established successfully</h5>";
         }
@@ -87,7 +87,13 @@ class adminmodel
         return $arr;
 
     }
-
+//check data  exist or not
+public function chkdata($table,$data){
+    $select="select * from $table where $data";
+    $exe = mysqli_query($this->connection, $select);
+    $num_rows = mysqli_num_rows($exe);
+    return $num_rows;
+}
 
     //delete all data
     public function delete($id, $table, $where)

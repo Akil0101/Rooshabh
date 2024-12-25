@@ -7,7 +7,7 @@ class model
         
          session_start();
         // database connectivity
-        $conn = $this->connection = new mysqli("localhost", "root", "", "tm");
+        $conn = $this->connection = new mysqli("localhost", "root", "", "roosh");
         if ($conn) {
             // echo "<h5>Connection stablished successfully</h5>";
         } else {

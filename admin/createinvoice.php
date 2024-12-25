@@ -1,3 +1,85 @@
+
+
+<div class="modal fade bd-example-modal-lg" id="custmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+                            <!-- Table with stripped rows -->
+                            <table id="myTable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th width="5%">Id</th>
+                                        <th width="10%">Name</th>
+                                        <th class="add">address</th>
+                                        <th>email</th>
+                                        <th width="10%">Phone</th>
+                                        <th width="10%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                </tbody>
+                            </table>
+                            <!-- End Table with stripped rows -->
+                     
+    
+
+<script>
+            $(document).ready(function () {
+
+
+
+                //    portfolioproductfech
+         $.ajax({
+
+                    url: "<?php echo $mainurl; ?>customerfetch",
+
+                    method: "GET",
+
+                    success: function (response) {
+
+                        let data = JSON.parse(response);
+
+                        // console.log(data);
+                        let i = 1;
+
+
+                        data.forEach(item => {
+                            const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+                            const newRow = table.insertRow();
+                            const cell1 = newRow.insertCell(0);
+                            const cell2 = newRow.insertCell(1);
+                            const cell3 = newRow.insertCell(2);
+                            const cell4 = newRow.insertCell(3);
+                            const cell5 = newRow.insertCell(4);
+                            const cell6 = newRow.insertCell(5);
+                            cell1.innerHTML = i;
+                            cell2.innerHTML = item['name'];
+                            cell3.innerHTML =item['address'];
+                            cell4.innerHTML = item['email'];
+                            cell5.innerHTML = item['phone'];
+                            cell6.innerHTML = " <form action='' method='post'><input type='hidden' name='sid' value="+item['id']+"> <button type='submit' name='selectcust' class='delete btn btn-primary mr-sm-2'>Select</button></form>";
+                            i++;
+
+                           
+                        });
+
+                    }
+
+                });
+
+
+
+
+            });
+        </script>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="modal fade bd-example-modal-lg" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -79,28 +161,16 @@
                     </div>
                     <input id="currency" type="hidden" value="$">
                     <div class="row">
-                        <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <h3>From,</h3>
-                            <div class="form-group">
-                                <input type="text" class="form-control invoinput" name="companyName" value="Rushabh bathware" id="companyName"
-                                    placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control invoinput"  rows="3" name="address" id="address"
-                                    placeholder="Address">Morbi</textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control invoinput" value="rushabh123@gmail.com" name="Email" id="companyName"
-                                    placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control invoinput" value="8141910114" name="Phone" id="companyName"
-                                    placeholder="Phone">
-                            </div>
 
-                        </div> -->
+
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <!-- <h3>To,</h3> -->
+                            <div class="form-group">
+                                <a href="" data-toggle="modal" data-target="#custmodal">select existing customers</a>
+                            </div>
+                            <div class="form-group">
+                                OR Enter Manually
+                            </div>
                             <div class="form-group">
                                 <input type="text" class="form-control invoinput" required name="Name"
                                     placeholder="Name" value="<?php if (isset($_SESSION['name'])) {
@@ -137,6 +207,11 @@
                             </div>
 
                         </div>
+
+
+
+
+
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -348,8 +423,8 @@
                         </div> -->
                     </div>
                     <div class="clearfix"></div>
-                    
-                    <input type="submit" class="btn btn-success smit " name="saveinvo"  value="Save Invoice">
+
+                    <input type="submit" class="btn btn-success smit " name="saveinvo" value="Save Invoice">
                 </div>
 
             </form>
@@ -371,9 +446,9 @@
 
     }
 
-   
 
-   
+
+
 
 </script>
 

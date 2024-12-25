@@ -1,6 +1,6 @@
 <?php
-$mainurl = "http://localhost/work/morbi/rooshabh/admin/";
-$baseurl = "http://localhost/work/morbi/rooshabh/admin/assets/";
+$mainurl = "http://localhost/rooshabh/admin/";
+$baseurl = "http://localhost/rooshabh/admin/assets/";
 
 ?>
 <!DOCTYPE html>
@@ -41,6 +41,11 @@ $baseurl = "http://localhost/work/morbi/rooshabh/admin/assets/";
 
 
   <style>
+
+    .add{
+      width: 50px
+      height: auto;
+    }
     .NPC {
       display: none;
       <?php
@@ -50,6 +55,52 @@ $baseurl = "http://localhost/work/morbi/rooshabh/admin/assets/";
       ?>
 
     }
+
+/* css for add customers alert */
+.CUSTO{
+  display: none;
+
+<?php
+if ($CUSTO == 1) {
+
+  echo "display: block;";
+} else {
+
+
+}
+?>
+
+}
+
+.ACUSTO{
+  display: none;
+
+<?php
+if ($ACUSTO == 1) {
+
+  echo "display: block;";
+} else {
+
+
+}
+?>
+
+}
+
+.CDD{
+  display: none;
+
+<?php
+if ($CDD == 1) {
+
+  echo "display: block;";
+} else {
+
+
+}
+?>
+
+}
 
     /* css for footer update alret page */
     .FF {
@@ -654,6 +705,17 @@ $baseurl = "http://localhost/work/morbi/rooshabh/admin/assets/";
             <span class="nav-link-text ms-1">Manage invoice</span>
           </a>
         </li>
+
+        
+        <li class="nav-item">
+          <a class="nav-link text-white " href="<?php echo $mainurl; ?>managecustomers">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Manage Customers</span>
+          </a>
+        </li>
+
 
 
         <li class="nav-item mt-3">

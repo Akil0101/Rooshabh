@@ -1,6 +1,6 @@
 <?php
-$mainurl = "http://localhost/work/morbi/rooshabh/";
-$baseurl = "http://localhost/work/morbi/rooshabh/assets/";
+$mainurl = "http://localhost/rooshabh/";
+$baseurl = "http://localhost/rooshabh/assets/";
 
 ?>
 

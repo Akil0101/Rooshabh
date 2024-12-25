@@ -86,6 +86,7 @@ class admincontroller extends adminmodel
         $op = $this->selectalldata("about_team");
         $contact = $this->one("contact");
         $footer = $this->one("footer");
+        $customer = $this->selectalldata("customers");
 
         // logic for add product
         if (isset($_POST['addproduct'])) {
@@ -154,8 +155,21 @@ class admincontroller extends adminmodel
         // $_SESSION['gst']="";
         // $_SESSION['transpot']="";
 
+//logic for selecting customer
+if (isset($_POST["selectcust"])) {
+
+    $sid=$_POST["sid"];
+
+    $cust=$this->onepro($sid,"customers","id");
+
+    $_SESSION['name'] = $cust['name'];
+    $_SESSION['address'] = $cust['address'];
+    $_SESSION['email'] = $cust['email'];
+    $_SESSION['phone'] = $cust['phone'];
 
 
+
+}
 
 
 
@@ -168,6 +182,7 @@ class admincontroller extends adminmodel
 
             } else {
 
+
                 $name = $_POST['Name'];
                 $address = $_POST['address'];
                 $email = $_POST['Email'];
@@ -176,6 +191,17 @@ class admincontroller extends adminmodel
                 $trans = $_POST['transpot'];
                 $token = rand(0000000, 9999999);
 
+
+                $data="name='$name' and phone='$phone'";
+                $chk=$this->chkdata("customers",$data);
+    
+               if($chk<1){
+    
+               $data1=array("name" => $name, "address" => $address, "email" => $email, "phone" => $phone);
+    
+                $chk1=$this->insalldata("customers",$data1);
+                $CUSTO=1;
+            }
 
                 $_SESSION['token'] = $token;
                 $_SESSION['name'] = $name;
@@ -303,8 +329,29 @@ class admincontroller extends adminmodel
 
         }
 
+        //logic for add customer
 
+        if(isset($_POST['addcustomer'])){
+            $CUSTO=0;
+            $ACUSTO=0;
+            $name = $_POST['Name'];
+            $address = $_POST['address'];
+            $email = $_POST['Email'];
+            $phone = $_POST['Phone'];
 
+            $data="name='$name' and phone='$phone'";
+            $chk=$this->chkdata("customers",$data);
+
+           if($chk<1){
+
+           $data1=array("name" => $name, "address" => $address, "email" => $email, "phone" => $phone);
+
+            $chk1=$this->insalldata("customers",$data1);
+            $CUSTO=1;
+        }else{
+            $ACUSTO=1;
+        }
+    }
         //logic for update header
         if (isset($_POST['uphead'])) {
 
@@ -437,6 +484,23 @@ class admincontroller extends adminmodel
 
 
             $PCD = 1;
+
+
+
+
+        }
+
+         //logic for delete Customer
+         if (isset($_POST['cddelete'])) {
+            $CDD = 0;
+            $sid = $_POST['cdid'];
+
+            $chk = $this->delete($sid, "customers", "id");
+
+
+
+
+            $CDD = 1;
 
 
 
@@ -896,6 +960,17 @@ class admincontroller extends adminmodel
                     }
                     break;
 
+                    case '/managecustomers':
+                        if (isset($_SESSION["admin_id"])) {
+                            require_once("index.php");
+                            require_once("navbar.php");
+                            require_once("managecustomers.php");
+                            require_once("footer.php");
+                        } else {
+                            echo "<script>window.location.assign('http://localhost/work/morbi/tmorbi/admin/')</script>";
+                        }
+                        break;
+
                 case '/header':
                     if (isset($_SESSION["admin_id"])) {
                         require_once("index.php");
@@ -1117,6 +1192,14 @@ class admincontroller extends adminmodel
 
 
                     break;
+
+                    case '/customerfetch':
+
+                        require_once("index.php");
+                        require_once("fechtcustomer.php");
+    
+    
+                        break;
 
                 case '/portfoliocatfech':
 
